@@ -5,23 +5,16 @@
  *      Author: fabien
  */
 
-#include <SFML/Graphics.hpp>
+#include "Game.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML Works!");
-	while(window.isOpen())
+	Game game;
+	while(!game.getWindow()->isDone())
 	{
-		sf::Event event;
-		while(window.pollEvent(event))
-		{
-			if(event.type == sf::Event::Closed)
-			{
-				window.close();
-			}
-		}
-		window.clear();
-		window.display();
+		game.handleInputs();
+		game.update();
+		game.render();
 	}
 
 	return 0;
