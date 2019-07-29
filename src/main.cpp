@@ -15,6 +15,7 @@ int main()
 		game.handleInputs();
 		game.update();
 		game.render();
+		game.restartClock();
 	}
 
 	return 0;

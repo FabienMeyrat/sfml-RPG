@@ -23,12 +23,18 @@ public:
 	void update();
 	void render();
 
+	void restartClock();
+
 	// Getters
 	Window* getWindow();
+	sf::Time getElapsed();
 
 private:
 
 	Window m_window;
+
+	sf::Clock m_clock;
+	sf::Time m_elapsed;
 
 };
 

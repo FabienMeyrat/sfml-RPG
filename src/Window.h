@@ -10,7 +10,9 @@
 
 #include <string>
 
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
+
+#include "EventManager.h"
 
 class Window
 {
@@ -28,12 +30,15 @@ public:
 	void update();
 	void draw(sf::Drawable& l_drawable);
 
-	void toggleFullscreen();
+	void toggleFullscreen(EventDetails* l_details);
+	void close(EventDetails* l_details = nullptr);
 
 	// Getters
 	bool isDone();
+	bool isFocused();
 	bool isFullscreen();
 	sf::Vector2u getSize();
+	EventManager* getEventManage();
 
 private:
 
@@ -43,10 +48,12 @@ private:
 	void create();
 
 	sf::RenderWindow m_window;
+	EventManager m_eventManager;
 	sf::Vector2u m_size;
 	std::string m_title;
 	bool m_isDone;
 	bool m_isFullscreen;
+	bool m_isFocused;
 
 };
 
