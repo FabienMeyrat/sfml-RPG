@@ -9,6 +9,8 @@
 #define SRC_GAME_H_
 
 #include "Window.h"
+#include "StateManager.h"
+#include "SharedContext.h"
 
 class Game
 {
@@ -19,9 +21,9 @@ public:
 	Game();
 	~Game();
 
-	void handleInputs();
 	void update();
 	void render();
+	void lateUpdate();
 
 	void restartClock();
 
@@ -35,6 +37,8 @@ private:
 
 	sf::Clock m_clock;
 	sf::Time m_elapsed;
+	SharedContext m_context;
+	StateManager m_stateManager;
 
 };
 

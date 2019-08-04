@@ -12,10 +12,9 @@ int main()
 	Game game;
 	while(!game.getWindow()->isDone())
 	{
-		game.handleInputs();
 		game.update();
 		game.render();
-		game.restartClock();
+		game.lateUpdate();
 	}
 
 	return 0;
