@@ -8,7 +8,7 @@
 #ifndef SRC_BASESTATE_H_
 #define SRC_BASESTATE_H_
 
-#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
 
 class StateManager;
 
@@ -40,12 +40,14 @@ public:
 	bool isTransparent() const { return m_transparent; }
 	bool isTranscendent() const { return m_transcendent; }
 	StateManager* getStateManager() { return m_stateMgr; }
+	sf::View& getView() { return m_view; }
 
 protected:
 
 	StateManager* m_stateMgr;
 	bool m_transparent;
 	bool m_transcendent;
+	sf::View m_view;
 
 };
 

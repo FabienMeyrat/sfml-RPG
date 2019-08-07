@@ -79,3 +79,12 @@ sf::Vector2u Window::getSize() { return m_size; }
 bool Window::isFocused() { return m_isFocused; }
 EventManager* Window::getEventManager() { return &m_eventManager; }
 sf::RenderWindow* Window::getRenderWindow() { return &m_window; }
+
+sf::FloatRect Window::getViewSpace()
+{
+	sf::Vector2f viewCenter = m_window.getView().getCenter();
+	sf::Vector2f viewSize = m_window.getView().getSize();
+	sf::Vector2f viewSizeHalf(viewSize.x / 2.0f, viewSize.y / 2.0f);
+	sf::FloatRect viewSpace(viewCenter - viewSizeHalf, viewSize);
+	return viewSpace;
+}

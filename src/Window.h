@@ -40,6 +40,7 @@ public:
 	sf::Vector2u getSize();
 	EventManager* getEventManager();
 	sf::RenderWindow* getRenderWindow();
+	sf::FloatRect getViewSpace();
 
 private:
 
